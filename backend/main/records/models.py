@@ -13,6 +13,14 @@ class Record(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_payed = models.DateTimeField(null=True, blank=True)
 
+    transaction_type_choices = [
+        ('credit', 'Credit'),
+        ('debit', 'Debit')
+    ]
+
+    transaction_type = models.CharField(
+        max_length=6, choices=transaction_type_choices, default='debit')
+
     def __str__(self):
         return self.title
 
