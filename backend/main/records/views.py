@@ -42,12 +42,16 @@ class RecordRetrieveUpdateDeleteView(APIView):
         return Response(serializer.data)
 
     def put(self, request, pk):
+        if not request.user_id:
+            raise AuthenticationFailed('Unauthenticated')
         # Retrieve the record
         record = self.get_record(pk, request.user_id)
 
         # Check if the record belongs to the user
         if record.user_id != request.user_id:
             raise AuthenticationFailed('Unauthorized to update this record')
+
+        request.data['user'] = request.user_id
 
         # Update the record with request data
         serializer = RecordSerializer(record, data=request.data)
