@@ -15,6 +15,7 @@ const LogoutButton = () => {
                 'Content-Type': 'application/json'
             },
         });
+        console.log(response.status)
 
         if (response.ok) {
             localStorage.removeItem('token');

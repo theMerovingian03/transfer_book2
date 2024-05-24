@@ -36,10 +36,11 @@ const AddRecord = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Cookie': `jwt=${token}`
                 },
                 body: JSON.stringify(recordData)
             });
+            console.log(response.headers)
 
             if (response.ok) {
                 // Record added successfully

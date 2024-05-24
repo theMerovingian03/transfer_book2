@@ -52,7 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "records.middleware.TokenMiddleware"
+    "records.middleware.TokenMiddleware"  # Ensure this is after CorsMiddleware
 ]
 
 ROOT_URLCONF = "main.urls"

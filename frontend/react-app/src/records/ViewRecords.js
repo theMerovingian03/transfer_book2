@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import BASE_URL from '../config';
-// hi
+
 const ViewRecords = () => {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
         const fetchRecords = async () => {
             const token = localStorage.getItem('token');
-            console.log(token);
 
             if (!token) {
                 console.error('No token found');
@@ -15,18 +15,17 @@ const ViewRecords = () => {
             }
 
             try {
-                const response = await fetch(`${BASE_URL}/api/records/`, { // Ensure there is a slash between BASE_URL and /api/records
-                    method: 'GET',
+                const response = await axios.get(`${BASE_URL}/api/records/`, {
                     headers: {
+                        'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
-                    },
+                    }
                 });
 
                 console.log(response);
 
-                if (response.ok) {
-                    const data = await response.json();
-                    setRecords(data);
+                if (response.status === 200) {
+                    setRecords(response.data);
                 } else {
                     console.error('Failed to fetch records', response.status);
                 }

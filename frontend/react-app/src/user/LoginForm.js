@@ -23,7 +23,9 @@ const LoginForm = () => {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem('token', data.jwt);
-                navigate('/records');
+                const token = localStorage.getItem('token');
+                document.cookie = `jwt=${token}; path=/;`;
+                navigate('/profile');
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Login failed');
