@@ -178,6 +178,11 @@ select {
   text-align: center; /* Center align the text */
 }
 
+.table1 th {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
 .table1 tr:hover {
   color: var(--secondary-color);
 }
