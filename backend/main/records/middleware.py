@@ -12,12 +12,12 @@ class TokenMiddleware(MiddlewareMixin):
         authorization_header = request.headers.get('Authorization')
         if authorization_header and authorization_header.startswith('Bearer '):
             token = authorization_header.split(' ')[1]
-            print("From authorization header")
+            print("Authorization header parsed for token")
 
         # If Authorization header is not present, check for cookies
         if not token:
             token = request.COOKIES.get('jwt')
-            print("From cookie")
+            print("Cookie received")
 
         if token:
             try:
@@ -26,7 +26,7 @@ class TokenMiddleware(MiddlewareMixin):
                 print(request.user_id)
             except jwt.ExpiredSignatureError:
                 raise AuthenticationFailed('Unauthenticated!')
-            except jwt.InvalidTokenError:
+            except (jwt.InvalidTokenError, jwt.DecodeError):
                 raise AuthenticationFailed('Invalid token!')
         else:
             request.user_id = None

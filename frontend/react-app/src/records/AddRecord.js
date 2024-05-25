@@ -34,9 +34,10 @@ const AddRecord = () => {
 
             const response = await fetch(`${BASE_URL}/api/records/`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Cookie': `jwt=${token}`
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(recordData)
             });

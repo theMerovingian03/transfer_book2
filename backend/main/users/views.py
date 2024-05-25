@@ -38,7 +38,8 @@ class LoginView(APIView):
         token = jwt.encode(payload, 'secret', algorithm='HS256')
 
         response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
+        response.set_cookie(key='jwt', value=token,
+                            httponly=True, samesite='LAX', secure=True)
         response.data = {
             'jwt': token
         }
@@ -63,9 +64,18 @@ class UserView(APIView):
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
-        response.delete_cookie('jwt')
-        response.data = {
-            'message': 'logged out!'
-        }
+
+        try:
+            if request.COOKIES.get('jwt'):
+                response.delete_cookie('jwt')
+                response.data = {
+                    'message': 'Logged out successfully!'
+                }
+            else:
+                raise ValueError('No JWT cookie found')
+        except ValueError as e:
+            response.data = {
+                'message': 'You are already logged out!'
+            }
 
         return response

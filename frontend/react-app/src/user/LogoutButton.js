@@ -15,10 +15,11 @@ const LogoutButton = () => {
                 'Content-Type': 'application/json'
             },
         });
-        console.log(response.status)
+        console.log(response.body);
 
         if (response.ok) {
             localStorage.removeItem('token');
+            document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             navigate('/login');
             console.log("Logged out!")
         } else {

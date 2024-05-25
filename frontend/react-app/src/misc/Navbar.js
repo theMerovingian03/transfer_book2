@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import LogoutButton from "../user/LogoutButton";
+import GetCookie from "./GetCookie";
 
 const Navbar = () => {
     return (
@@ -10,6 +11,7 @@ const Navbar = () => {
                 <Link to="/login">Login</Link>
                 <Link to="/contact">Contact</Link>
                 <LogoutButton />
+                <GetCookie />
             </div>
         </nav>
     );

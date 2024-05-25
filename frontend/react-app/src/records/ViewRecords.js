@@ -22,7 +22,6 @@ const ViewRecords = () => {
                     }
                 });
 
-                console.log(response);
 
                 if (response.status === 200) {
                     setRecords(response.data);
