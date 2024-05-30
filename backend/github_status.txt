@@ -1,0 +1,74 @@
+(myenv) PS D:\Django\transfer_book_2> git init
+Initialized empty Git repository in D:/Django/transfer_book_2/.git/
+(myenv) PS D:\Django\transfer_book_2> echo backend\myenv\ >> .gitignore
+(myenv) PS D:\Django\transfer_book_2> git add .
+(myenv) PS D:\Django\transfer_book_2> git commit -m "Initial commit - backend"
+[master (root-commit) be22235] Initial commit - backend
+ 54 files changed, 646 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 backend/.gitignore       
+ create mode 100644 backend/main/db.sqlite3  
+ create mode 100644 backend/main/main/__init__.py
+ create mode 100644 backend/main/main/__pycache__/__init__.cpython-311.pyc
+ create mode 100644 backend/main/main/__pycache__/settings.cpython-311.pyc
+ create mode 100644 backend/main/main/__pycache__/urls.cpython-311.pyc
+ create mode 100644 backend/main/main/__pycache__/wsgi.cpython-311.pyc
+ create mode 100644 backend/main/main/asgi.py
+ create mode 100644 backend/main/main/settings.py
+ create mode 100644 backend/main/main/urls.py
+ create mode 100644 backend/main/main/wsgi.py
+ create mode 100644 backend/main/manage.py   
+ create mode 100644 backend/main/records/__init__.py
+ create mode 100644 backend/main/records/__pycache__/__init__.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/admin.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/apps.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/middleware.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/models.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/serializers.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/urls.cpython-311.pyc
+ create mode 100644 backend/main/records/__pycache__/views.cpython-311.pyc
+ create mode 100644 backend/main/records/admin.py
+ create mode 100644 backend/main/records/apps.py
+ create mode 100644 backend/main/records/middleware.py
+ create mode 100644 backend/main/records/migrations/0001_initial.py
+ create mode 100644 backend/main/records/migrations/__init__.py
+ create mode 100644 backend/main/records/migrations/__pycache__/0001_initial.cpython-311.pyc
+ create mode 100644 backend/main/records/migrations/__pycache__/__init__.cpython-311.pyc  
+ create mode 100644 backend/main/records/models.py
+ create mode 100644 backend/main/records/serializers.py
+ create mode 100644 backend/main/records/tests.py
+ create mode 100644 backend/main/records/urls.py
+ create mode 100644 backend/main/records/views.py
+ create mode 100644 backend/main/users/__init__.py
+ create mode 100644 backend/main/users/__pycache__/__init__.cpython-311.pyc
+ create mode 100644 backend/main/users/__pycache__/admin.cpython-311.pyc
+ create mode 100644 backend/main/users/__pycache__/apps.cpython-311.pyc
+ create mode 100644 backend/main/users/__pycache__/models.cpython-311.pyc
+ create mode 100644 backend/main/users/__pycache__/serializers.cpython-311.pyc
+ create mode 100644 backend/main/users/__pycache__/urls.cpython-311.pyc
+ions/__init__.py
+ create mode 100644 backend/main/users/migrations/__pycache__/0001_initial.cpython-311.pyc create mode 100644 backend/main/users/migrations/__pycache__/__init__.cpython-311.pyc
+ create mode 100644 backend/main/users/models.py
+ create mode 100644 backend/main/users/serializers.py
+ create mode 100644 backend/main/users/tests.py
+ create mode 100644 backend/main/users/urls.py
+ create mode 100644 backend/main/users/views.py
+ create mode 100644 backend/requirements.txt
+(myenv) PS D:\Django\transfer_book_2> git remote add origin https://github.com/theMerovingian03/transfer_book2.git
+(myenv) PS D:\Django\transfer_book_2> git remote -v
+)
+(myenv) PS D:\Django\transfer_book_2> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/theMerovingian03/transfer_book2.git'
+(myenv) PS D:\Django\transfer_book_2> git push -u origin master
+Enumerating objects: 62, done.
+Counting objects: 100% (62/62), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (59/59), done.
+Writing objects: 100% (62/62), 29.69 KiB | 2.47 MiB/s, done.
+Total 62 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), done.
+To https://github.com/theMerovingian03/transfer_book2.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+(myenv) PS D:\Django\transfer_book_2>
