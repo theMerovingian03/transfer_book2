@@ -54,5 +54,5 @@ npm install
 npm start
 ```
 
-## Usage:
+### Usage:
 After starting, open localhost on port 3000 and *sign in* using /register endpoint. Next, you can immediately start managing your finances.
