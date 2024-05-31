@@ -8,6 +8,9 @@ import Contact from "./misc/Contact";
 import LoginForm from "./user/LoginForm";
 import RegisterForm from "./user/RegisterForm";
 import GetProfile from "./user/GetProfile";
+import Dashboard from "./user/Dashboard";
+import ProtectedRoute from "./util/ProtectedRoute";
+import PublicRoute from './util/PublicRoute'
 
 // Record pages
 import AddRecord from "./records/AddRecord";
@@ -20,20 +23,20 @@ function App() {
       <Navbar />
       <Routes>
         {/* Misc views */}
-        <Route path="/" element={<ViewRecords />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
 
         {/* User Views */}
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/profile" element={<GetProfile />} />
+        <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/login" element={<PublicRoute><LoginForm /></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><RegisterForm /></PublicRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><GetProfile /></ProtectedRoute>} />
 
         {/* Record Views */}
-        <Route path="/add" element={<AddRecord />} />
-        <Route path="/edit/:id" element={<AddRecord />} />
-        <Route path="/records" element={<ViewRecords />} />
-        <Route path="/records/:id" element={<RecordDetail />} />
+        <Route path="/add" element={<ProtectedRoute><AddRecord /></ProtectedRoute>} />
+        <Route path="/edit/:id" element={<ProtectedRoute><AddRecord /></ProtectedRoute>} />
+        <Route path="/records" element={<ProtectedRoute><ViewRecords /></ProtectedRoute>} />
+        <Route path="/records/:id" element={<ProtectedRoute><RecordDetail /></ProtectedRoute>} />
         <Route path="/edit/:id" element={<AddRecord />} />
       </Routes>
     </>

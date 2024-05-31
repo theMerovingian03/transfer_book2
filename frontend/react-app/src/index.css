@@ -2,17 +2,18 @@
 /* base styles */
 
 :root {
-  --primary-color: rgb(0, 0, 0);
+  /* --primary-color: rgb(0, 0, 0);
   --secondary-color: rgb(111, 113, 112);
-  --background-color: rgb(255, 255, 255);
+  --background-color: rgb(255, 255, 255); */
   --table-hover-color: rgb(255, 0, 0);
 
-  /* --primary-color: rgb(0, 0, 0);
+  --primary-color: rgba(228, 228, 228, 0.657);
   --secondary-color: rgb(88, 177, 255);
-  --background-color: white; */
+  --background-color: rgb(22, 27, 39);
 }
 
 * {
+  color: var(--primary-color);
   background-color: var(--background-color);
   margin: 0;
   font-family: "Chakra Petch", sans-serif;
@@ -108,7 +109,7 @@ select {
 .formContainer button[type="submit"] {
   font-size: medium;
   margin-top: 5px;
-  margin-left: 110px;
+  margin-left: 100px;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 3px;
@@ -212,7 +213,7 @@ select {
 }
 
 .table1 tr:hover {
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important;
 }
 
 .table-button-div {
@@ -255,4 +256,30 @@ select {
 }
 .logoutButton:hover {
   color: var(--secondary-color);
+}
+
+/* Dashboard styles */
+
+.button-container {
+  margin-top: 5%;
+  height: 80%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-container button {
+  color: var(--primary-color);
+  margin: 10px;
+  height: 40%;
+  width: 80%;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  font-size: medium;
+}
+
+.button-container button:hover {
+  color: var(--background-color);
+  background-color: var(--primary-color);
 }

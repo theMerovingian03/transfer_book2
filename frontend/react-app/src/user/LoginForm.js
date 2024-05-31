@@ -25,7 +25,7 @@ const LoginForm = () => {
             if (response.ok) {
                 const data = await response.json();
                 login(data.jwt);  // Use the login function to set the token
-                navigate('/profile');
+                navigate('/');
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Login failed');

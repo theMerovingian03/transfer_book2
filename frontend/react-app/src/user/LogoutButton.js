@@ -1,17 +1,17 @@
 // LogoutButton.js
 import React, { useContext } from 'react';
 import { AuthContext } from '../util/AuthContext';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const LogoutButton = () => {
     const { logout } = useContext(AuthContext);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleLogout = async (e) => {
         e.preventDefault();
         await logout();
-        // navigate('/login');
+        navigate('/login');
     }
 
     return (

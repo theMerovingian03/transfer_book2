@@ -2,11 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../config";
 
-/*
-* email: jane.doe2@example.com
-* password: password123$
-*/
-
 const RegisterForm = () => {
 
     const [name, setName] = useState('');

@@ -26,7 +26,6 @@ class TokenMiddleware(MiddlewareMixin):
             try:
                 payload = jwt.decode(token, 'secret', algorithms=['HS256'])
                 request.user_id = payload['id']
-                print(request.user_id)
             except jwt.ExpiredSignatureError:
                 raise AuthenticationFailed('Unauthenticated!')
             except (jwt.InvalidTokenError, jwt.DecodeError):

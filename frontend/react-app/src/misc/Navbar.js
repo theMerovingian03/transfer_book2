@@ -5,13 +5,13 @@ import { AuthContext } from '../util/AuthContext';
 import LogoutButton from '../user/LogoutButton';
 
 const Navbar = () => {
-    const { token } = useContext(AuthContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
     return (
         <nav className="navBar">
             <h1>PayJournal v2</h1>
             <div className="links">
-                {token ? (
+                {isAuthenticated ? (
                     <LogoutButton />
                 ) : (
                     <div className="links">

@@ -24,7 +24,6 @@ class RecordListCreateView(APIView):
         return Response(serializer.data)
 
     def get(self, request):
-        print(request.user_id)
         if not request.user_id:
             raise AuthenticationFailed('Unauthenticated!')
 

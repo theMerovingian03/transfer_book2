@@ -35,6 +35,34 @@ const RecordDetail = () => {
         fetchRecord();
     }, [id]);
 
+    const handleDelete = async () => {
+        // Display confirmation dialog
+        const confirmDelete = window.confirm('Are you sure you want to delete this record?');
+
+        // If user confirms deletion
+        if (confirmDelete) {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.delete(`${BASE_URL}/api/records/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    withCredentials: true
+                });
+
+                if (response.status === 200) {
+                    navigate('/records');
+                } else {
+                    console.error('Failed to delete record');
+                }
+            } catch (error) {
+                console.error('An error occurred while deleting record', error);
+            }
+        }
+    };
+
+
     const handleEdit = (id) => {
         navigate(`/edit/${id}`)
     }
@@ -79,7 +107,7 @@ const RecordDetail = () => {
             <div className="table-button-div">
                 <button onClick={() => navigate('/add')}>New</button>
                 <button onClick={() => handleEdit(record.id)}>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => handleDelete()}>Delete</button>
                 <button onClick={() => navigate('/')}>Back</button>
             </div>
         </div>
