@@ -9,7 +9,7 @@ const Navbar = () => {
 
     return (
         <nav className="navBar">
-            <h1>PayJournal v2</h1>
+            <h1>Transfer Book v2</h1>
             <div className="links">
                 {isAuthenticated ? (
                     <LogoutButton />
