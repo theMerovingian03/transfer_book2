@@ -4,7 +4,7 @@ from rest_framework.request import Request
 from rest_framework.exceptions import AuthenticationFailed
 from .models import Record
 from .serializers import RecordSerializer
-import jwt
+from rest_framework import status
 from django.conf import settings
 from functools import wraps
 
@@ -73,3 +73,11 @@ class RecordRetrieveUpdateDeleteView(APIView):
             return Record.objects.get(pk=pk, user=user_id)
         except Record.DoesNotExist:
             raise AuthenticationFailed('Record not found')
+
+
+class TokenValidateView(APIView):
+    def get(self, request):
+        if not request.user_id:
+            return Response({'detail': 'Token is invalid or has expired.'}, status=status.HTTP_401_UNAUTHORIZED)
+        else:
+            return Response({'detail': 'User authenticated, Welcome!'}, status=status.HTTP_200_OK)

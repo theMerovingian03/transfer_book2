@@ -1,19 +1,34 @@
 // AuthContext.js
 import { createContext, useState, useEffect, useContext } from 'react';
 import BASE_URL from '../config';
-
+import axios from 'axios';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsAuthenticated(true);
-        } else {
-            setIsAuthenticated(false);
+        const validateToken = async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                setIsAuthenticated(false);
+                return;
+            }
+
+            try {
+                await axios.get(`${BASE_URL}/api/records./validate-token/`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                setIsAuthenticated(true)
+            } catch (error) {
+                console.error('Token validation failed', error);
+                setIsAuthenticated(false);
+                localStorage.removeItem('token');
+            }
         }
+        validateToken();
     }, []);
 
     const login = (jwt) => {
