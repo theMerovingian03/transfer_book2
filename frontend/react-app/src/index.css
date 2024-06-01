@@ -283,3 +283,21 @@ select {
   color: var(--background-color);
   background-color: var(--primary-color);
 }
+
+input[type="date"] {
+  position: relative;
+  padding: 1px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+input[type="date"]::before {
+  content: "\1F4C5"; /* Unicode for a calendar emoji */
+  font-family: "Jost", sans-serif;
+  color: var(--primary-color);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure the icon doesn't interfere with clicking the input */
+}

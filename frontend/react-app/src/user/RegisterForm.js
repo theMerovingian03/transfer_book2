@@ -7,6 +7,7 @@ const RegisterForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
     const navigate = useNavigate();
 
@@ -35,10 +36,12 @@ const RegisterForm = () => {
             } else {
                 const errorData = await response.json();
                 console.error('Error registering user: ', errorData);
+                setError(errorData)
             }
 
         } catch (error) {
             console.error('Error registering user: ', error);
+            setError(error);
         }
     }
 
@@ -70,6 +73,7 @@ const RegisterForm = () => {
                         required />
                     <button type="submit">Submit</button>
                 </form>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
             </div>
         </div>
     );
